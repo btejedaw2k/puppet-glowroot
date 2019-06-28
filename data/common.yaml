@@ -1,0 +1,16 @@
+glowroot::version: '0.13.4-dist'
+glowroot::package_ensure: 'present'
+glowroot::config_ensure: 'directory'
+glowroot::service_ensure: 'running'
+glowroot::package_type: 'zip'
+glowroot::package_name: 'glowroot'
+glowroot::package_source: 'http://127.0.0.1/packages'
+glowroot::config_path: '/tmp/glowroot'
+glowroot::glowroot_master: false
+glowroot::glowroot_agent: false
+glowroot::user_privilages: 'glassfish'
+glowroot::group_privilages: 'glassfish'
+glowroot::application_name: 'glowroot'
+glowroot::location_name: 'host'
+glowroot::glowroot_colector_url: 'http://http://www.glowrootcolector.com'
+glowroot::glowroot_port_number: '80'
