@@ -20,10 +20,10 @@ class glowroot (
   Boolean $glowroot_agent                               = false,
   String $user_privilages                               = 'glassfish',
   String $group_privilages                              = 'glassfish',
-  String $application_name                              = 'SandalsBeaches',
-  String $location_name                                 = 'Toronto',
-  String $glowroot_colector_url                         = 'http://torpglowrootap1.sandals.com',
-  String $glowroot_port_number                          = '9090',
+  String $application_name                              = undef,
+  String $location_name                                 = undef,
+  String $glowroot_colector_url                         = undef,
+  String $glowroot_port_number                          = undef,
   ){
   # default variable
   $use_version = $version ? {
@@ -40,7 +40,7 @@ class glowroot (
   }
   $user_os_version = "${operating_system}/${operating_system_maj_release}"
   $use_package_source = $package_source ? {
-    undef   => "http://172.16.7.120/packages/${user_os_version}/${use_package_name}-${use_version}.${use_package_type}",
+    undef   => "http://127.0.0.1/packages/${user_os_version}/${use_package_name}-${use_version}.${use_package_type}",
     default => "${package_source}/${user_os_version}/${use_package_name}-${use_version}.${use_package_type}",
   }
   $use_default_path = $config_path ? {
