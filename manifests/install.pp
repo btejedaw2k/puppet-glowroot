@@ -5,11 +5,6 @@
 # @example
 #   include glowroot::install
 class glowroot::install inherits glowroot {
-  # Default variables for template
-  $application  = $::glowroot::application_name
-  $location          = $::glowroot::location_name
-  $glowroot_colector = $::glowroot::glowroot_colector_url
-  $glowroot_port     = $::glowroot::glowroot_port_number
 
   # archive module
   include ::archive
@@ -35,11 +30,5 @@ class glowroot::install inherits glowroot {
     user         => $::glowroot::user_privilages,
     group        => $::glowroot::group_privilages,
     require      => File[$::glowroot::config_path]
-  }
-
-  file { "${::glowroot::config_path}/${::glowroot::package_name}/glowroot.properties" :
-    ensure  => 'file',
-    content => template("${module_name}/agent_configuration.erb"),
-    require => Archive[$::glowroot::package_name],
   }
 }
